@@ -8,6 +8,7 @@ import wordCountPanel from "./wordCountPanel";
 import syncIndicatorPanel from "./syncIndicatorPanel";
 import followLinkTooltip from "./links/followLinkTooltip";
 import replacementExtension from "./replace/replacementExtension";
+import { setLocale } from "../localization";
 
 export default (context: ContentScriptContext): MarkdownEditorContentScriptModule => {
 	return {
@@ -100,6 +101,17 @@ export default (context: ContentScriptContext): MarkdownEditorContentScriptModul
 			editorControl.registerCommand('cm6-extended-settings-update', (settings: PluginSettings) => {
 				updateSettings(settings);
 			});
+			// The content script runs in the editor and can't access Joplin's settings directly,
+			// so the locale is provided by the main plugin script.
+			try {
+				const locale = await context.postMessage('getLocale');
+				if (typeof locale === 'string') {
+					setLocale(locale);
+				}
+			} catch (error) {
+				console.warn('Failed to get the locale from the plugin. Using the system language.', error);
+			}
+
 			const settings: PluginSettings = await context.postMessage('getSettings');
 			updateSettings(settings);
 		},

@@ -2,6 +2,21 @@ import joplin from 'api';
 import { registerSettings } from './settings';
 import { PluginSettings, SyncIndicatorMode, SyncStatus } from './types';
 import { ContentScriptType } from 'api/types';
+import { getLocale, setLocale, setLocaleFromNavigator } from './localization';
+
+// Uses Joplin's own language setting (e.g. "ja_JP") so that the plugin UI matches the app UI.
+const applyJoplinLocale = async () => {
+	try {
+		const joplinLocale: unknown = await joplin.settings.globalValue('locale');
+		if (typeof joplinLocale === 'string' && joplinLocale) {
+			setLocale(joplinLocale);
+			return;
+		}
+	} catch (error) {
+		console.info('Unable to read Joplin\'s locale setting. Falling back to the system language.', error);
+	}
+	setLocaleFromNavigator();
+};
 
 let registeredSyncListeners = false;
 const registerSyncStatusListeners = async (onStatusChange: (newStatus: SyncStatus)=>void) => {
@@ -21,6 +36,9 @@ const registerSyncStatusListeners = async (onStatusChange: (newStatus: SyncStatu
 
 joplin.plugins.register({
 	onStart: async function() {
+		// Must run before registering settings, since setting labels are localized at registration time.
+		await applyJoplinLocale();
+
 		let lastSettings: PluginSettings;
 		let contentScriptRegistered = false;
 		let syncStatus: SyncStatus = SyncStatus.NotSyncing;
@@ -73,6 +91,8 @@ joplin.plugins.register({
 			} else if (message === 'getSettings') {
 				contentScriptRegistered = true;
 				return lastSettings;
+			} else if (message === 'getLocale') {
+				return getLocale();
 			} else if (message === 'getSyncStatus') {
 				return syncStatus;
 			} else if (message === 'awaitSyncStatusChanged') {
