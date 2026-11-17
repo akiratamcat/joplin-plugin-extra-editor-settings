@@ -1,7 +1,9 @@
 name: Publish to NPM
+# This fork is a personal i18n test build and must not be published to npm.
+# The original "release: published" trigger is disabled so that creating a GitHub
+# (pre-)release here does not run "npm publish".
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
