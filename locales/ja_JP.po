@@ -15,11 +15,11 @@ msgstr "リンクを開く: %s"
 
 #: src/contentScript/syncIndicatorPanel.ts:35
 msgid "Not syncing"
-msgstr "同期していません"
+msgstr "同期待機中"
 
 #: src/contentScript/syncIndicatorPanel.ts:40
 msgid "Syncing..."
-msgstr "同期中..."
+msgstr "同期処理中…"
 
 #: src/contentScript/syncIndicatorPanel.ts:45
 msgid "Failed to sync"
@@ -47,11 +47,11 @@ msgstr "コードの折りたたみを有効にする"
 
 #: src/settings.ts:43
 msgid "Enable autocomplete"
-msgstr "オートコンプリートを有効にする"
+msgstr "入力補完を有効にする"
 
 #: src/settings.ts:48
 msgid "Highlight the gutter for the active line"
-msgstr "アクティブな行のガター（行番号欄）を強調表示"
+msgstr "カーソル行の行番号欄を強調表示"
 
 #: src/settings.ts:49
 msgid "Requires \"show line numbers\" to be enabled."
@@ -59,19 +59,19 @@ msgstr "「行番号を表示」を有効にする必要があります。"
 
 #: src/settings.ts:54
 msgid "Highlight active line"
-msgstr "アクティブな行を強調表示"
+msgstr "カーソル行を強調表示"
 
 #: src/settings.ts:59
 msgid "Highlight spaces"
-msgstr "スペースを強調表示"
+msgstr "空白文字（スペース・タブ）を強調表示"
 
 #: src/settings.ts:64
 msgid "Highlight trailing spaces"
-msgstr "行末のスペースを強調表示"
+msgstr "行末の空白を強調表示"
 
 #: src/settings.ts:69
 msgid "Highlight selection matches"
-msgstr "選択範囲と一致する箇所を強調表示"
+msgstr "選択した文字列と同じ箇所を強調表示"
 
 #: src/settings.ts:74
 msgid "Highlight matching brackets"
@@ -105,7 +105,7 @@ msgstr "単語数を表示"
 
 #: src/settings.ts:112
 msgid "Show visual sync indicator"
-msgstr "同期状態を表示"
+msgstr "エディターに同期状態を表示"
 
 #: src/settings.ts:113
 msgid "Shows the sync status in the Markdown editor."
@@ -129,9 +129,9 @@ msgid ""
 "\n"
 "When set to \"Some\", only some Markup is rendered. When set to \"More\", somewhat more Markup is rendered, though may not be rendered correctly."
 msgstr ""
-"カーソルが別の行にあるとき、特定の Markdown 記号を非表示にしたり置き換えたりします。\n"
+"カーソルのない行で、特定の Markdown 記号を非表示にしたり、表示用の要素に置き換えたりします。\n"
 "\n"
-"「一部」に設定すると、一部のマークアップのみがレンダリングされます。「多め」に設定すると、より多くのマークアップがレンダリングされますが、正しく表示されない場合があります。"
+"「一部」では、一部の記法だけを置き換えます。「より多く」では、より多くの記法を置き換えますが、正しく表示されない場合があります。"
 
 #: src/settings.ts:131
 msgid "Some"
@@ -139,7 +139,7 @@ msgstr "一部"
 
 #: src/settings.ts:133
 msgid "More (experimental)"
-msgstr "多め（実験的）"
+msgstr "より多く（実験的）"
 
 #: src/settings.ts:140
 msgid "Show link tooltip"
@@ -147,7 +147,7 @@ msgstr "リンクのツールチップを表示"
 
 #: src/settings.ts:141
 msgid "Shows tooltips that allow opening links under the cursor"
-msgstr "カーソル位置のリンクを開くためのツールチップを表示します"
+msgstr "カーソル位置のリンクを開くためのツールチップを表示します。"
 
 #: src/settings.ts:149
 msgid "Text direction"
@@ -155,7 +155,7 @@ msgstr "テキストの方向"
 
 #: src/settings.ts:150
 msgid "Overrides the default direction of text in the CodeMirror editor. For most users, this should be set to \"auto\"."
-msgstr "CodeMirror エディターでのテキストの既定の方向を上書きします。ほとんどのユーザーは「自動」のままで問題ありません。"
+msgstr "CodeMirror エディターでのテキストの方向を、既定の設定に関係なく固定します。通常は「自動」のままにしてください。"
 
 #: src/settings.ts:153
 msgid "Auto"
