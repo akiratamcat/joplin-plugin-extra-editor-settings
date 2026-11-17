@@ -1,5 +1,24 @@
 # Extended Markdown editor settings
 
+> [!IMPORTANT]
+> **Unofficial i18n test build.** This fork ([akiratamcat/joplin-plugin-extra-editor-settings](https://github.com/akiratamcat/joplin-plugin-extra-editor-settings)) is a personal test version that localizes the plugin UI with gettext PO files and follows Joplin's language setting. It uses a different plugin ID (`io.github.akiratamcat.codemirror6-settings-i18n`) from the original. Disable the original plugin while testing this build. The original plugin is by Henry Heino: [personalizedrefrigerator/joplin-plugin-extra-editor-settings](https://github.com/personalizedrefrigerator/joplin-plugin-extra-editor-settings).
+>
+> **非公式の UI 翻訳テスト版です。** この fork は、gettext の PO ファイルでプラグインの UI を翻訳し、Joplin の言語設定に合わせて表示言語を切り替える個人的なテスト版です。プラグイン ID がオリジナルと異なるため、テストの際はオリジナル版を無効にしてください。原作者は Henry Heino 氏です。
+
+## Translations (i18n test build)
+
+Translations are stored as gettext catalogs in [`locales/`](./locales/) (`template.pot` and `<locale>.po`). The UI language follows Joplin's language setting (*Tools > Options > General > Language*), falling back to English.
+
+Supported: Japanese (`ja_JP`), Chinese Simplified (`zh_CN`), Chinese Traditional (`zh_TW`), Korean (`ko_KR`), German (`de_DE`), French (`fr_FR`), Spanish (`es_ES`), Italian (`it_IT`), Portuguese (Brazil) (`pt_BR`), Russian (`ru_RU`), Croatian (`hr_HR`).
+
+Except for the existing Croatian translation (by Milo Ivir), the translations are machine-assisted (AI-generated) and have not been reviewed by native speakers.
+
+- `npm run extractStrings`: Extracts `_('...')` / `_c('context', '...')` strings from `src/` into `locales/template.pot` and merges them into every `.po` file.
+- `npm run checkStrings`: Fails if `template.pot` is out of date or any translation is missing.
+- `npm run compileLocales`: Compiles the `.po` files into `src/locales/generated.json` (runs automatically before `npm run dist` and `npm test`).
+
+To add a language, copy `locales/template.pot` to `locales/<locale>.po` (e.g. `nl_NL.po`), fill in the `msgstr` values, and rebuild.
+
 This plugin adds several additional Markdown editor settings. Many of these settings are built in to Joplin's [CodeMirror](https://codemirror.net/) editor.
 
 **In Joplin Desktop < 3.1.x**: To use this plugin, first enable the beta editor in settings (Options > General > Opt in to the editor beta).

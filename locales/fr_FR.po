@@ -1,0 +1,186 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: joplin-plugin-extra-editor-settings-i18n\n"
+"Language: fr\n"
+"Language-Team: French\n"
+"Last-Translator: Machine-assisted translation (not reviewed by a native speaker)\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"MIME-Version: 1.0\n"
+
+#: src/contentScript/links/followLinkTooltip.ts:29
+#, javascript-format
+msgid "Follow link: %s"
+msgstr "Ouvrir le lien : %s"
+
+#: src/contentScript/syncIndicatorPanel.ts:35
+msgid "Not syncing"
+msgstr "Pas de synchronisation"
+
+#: src/contentScript/syncIndicatorPanel.ts:40
+msgid "Syncing..."
+msgstr "Synchronisation…"
+
+#: src/contentScript/syncIndicatorPanel.ts:45
+msgid "Failed to sync"
+msgstr "Échec de la synchronisation"
+
+#: src/contentScript/wordCountPanel.ts:27
+msgid "Words"
+msgstr "Mots"
+
+#: src/settings.ts:11
+msgid "Extra editor settings"
+msgstr "Paramètres supplémentaires de l'éditeur"
+
+#: src/settings.ts:12
+msgid "Additional settings for Joplin's beta and mobile Markdown editors."
+msgstr "Paramètres supplémentaires pour les éditeurs Markdown bêta et mobile de Joplin."
+
+#: src/settings.ts:33
+msgid "Show line numbers"
+msgstr "Afficher les numéros de ligne"
+
+#: src/settings.ts:38
+msgid "Enable code folding"
+msgstr "Activer le pliage du code"
+
+#: src/settings.ts:43
+msgid "Enable autocomplete"
+msgstr "Activer l'autocomplétion"
+
+#: src/settings.ts:48
+msgid "Highlight the gutter for the active line"
+msgstr "Mettre en évidence la gouttière de la ligne active"
+
+#: src/settings.ts:49
+msgid "Requires \"show line numbers\" to be enabled."
+msgstr "Nécessite que « Afficher les numéros de ligne » soit activé."
+
+#: src/settings.ts:54
+msgid "Highlight active line"
+msgstr "Mettre en évidence la ligne active"
+
+#: src/settings.ts:59
+msgid "Highlight spaces"
+msgstr "Mettre en évidence les espaces"
+
+#: src/settings.ts:64
+msgid "Highlight trailing spaces"
+msgstr "Mettre en évidence les espaces en fin de ligne"
+
+#: src/settings.ts:69
+msgid "Highlight selection matches"
+msgstr "Mettre en évidence les correspondances de la sélection"
+
+#: src/settings.ts:74
+msgid "Highlight matching brackets"
+msgstr "Mettre en évidence les crochets correspondants"
+
+#: src/settings.ts:84
+#, javascript-format
+msgid "%s (small)"
+msgstr "%s (petite)"
+
+#: src/settings.ts:90
+#, javascript-format
+msgid "%s (large)"
+msgstr "%s (grande)"
+
+#: src/settings.ts:95
+msgid "Editor maximum width"
+msgstr "Largeur maximale de l'éditeur"
+
+#: src/settings.ts:96
+msgid "Setting this to a positive number (e.g. 600) centers the editor and prevents it from having a width larger than this size. Set this to \"none\" for the editor to fill the screen."
+msgstr "Définir un nombre positif (par ex. 600) centre l'éditeur et l'empêche de dépasser cette largeur. Choisissez « Aucune » pour que l'éditeur occupe tout l'écran."
+
+#: src/settings.ts:101
+msgid "Show background grid pattern"
+msgstr "Afficher une grille en arrière-plan"
+
+#: src/settings.ts:106
+msgid "Show word count"
+msgstr "Afficher le nombre de mots"
+
+#: src/settings.ts:112
+msgid "Show visual sync indicator"
+msgstr "Afficher l'indicateur visuel de synchronisation"
+
+#: src/settings.ts:113
+msgid "Shows the sync status in the Markdown editor."
+msgstr "Affiche l'état de la synchronisation dans l'éditeur Markdown."
+
+#: src/settings.ts:117
+msgid "With text"
+msgstr "Avec du texte"
+
+#: src/settings.ts:118
+msgid "With an icon"
+msgstr "Avec une icône"
+
+#: src/settings.ts:126
+msgid "Hide Markdown"
+msgstr "Masquer le Markdown"
+
+#: src/settings.ts:127
+msgid ""
+"Hides/replaces certain Markdown characters when the cursor is on a different line.\n"
+"\n"
+"When set to \"Some\", only some Markup is rendered. When set to \"More\", somewhat more Markup is rendered, though may not be rendered correctly."
+msgstr ""
+"Masque ou remplace certains caractères Markdown lorsque le curseur se trouve sur une autre ligne.\n"
+"\n"
+"Avec « Partiel », seule une partie du balisage est rendue. Avec « Plus », davantage de balisage est rendu, mais le rendu peut être incorrect."
+
+#: src/settings.ts:131
+msgid "Some"
+msgstr "Partiel"
+
+#: src/settings.ts:133
+msgid "More (experimental)"
+msgstr "Plus (expérimental)"
+
+#: src/settings.ts:140
+msgid "Show link tooltip"
+msgstr "Afficher l'infobulle des liens"
+
+#: src/settings.ts:141
+msgid "Shows tooltips that allow opening links under the cursor"
+msgstr "Affiche des infobulles permettant d'ouvrir les liens sous le curseur"
+
+#: src/settings.ts:149
+msgid "Text direction"
+msgstr "Direction du texte"
+
+#: src/settings.ts:150
+msgid "Overrides the default direction of text in the CodeMirror editor. For most users, this should be set to \"auto\"."
+msgstr "Remplace la direction par défaut du texte dans l'éditeur CodeMirror. Pour la plupart des utilisateurs, ce paramètre doit rester sur « Automatique »."
+
+#: src/settings.ts:153
+msgid "Auto"
+msgstr "Automatique"
+
+#: src/settings.ts:154
+msgid "Left-to-right"
+msgstr "De gauche à droite"
+
+#: src/settings.ts:155
+msgid "Right-to-left"
+msgstr "De droite à gauche"
+
+#: src/settings.ts:83
+msgctxt "editor maximum width"
+msgid "None"
+msgstr "Aucune"
+
+#: src/settings.ts:116
+msgctxt "sync indicator"
+msgid "No"
+msgstr "Non"
+
+#: src/settings.ts:130
+msgctxt "hide markdown"
+msgid "None"
+msgstr "Aucun"
+

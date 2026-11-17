@@ -1,0 +1,186 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: joplin-plugin-extra-editor-settings-i18n\n"
+"Language: ko\n"
+"Language-Team: Korean\n"
+"Last-Translator: Machine-assisted translation (not reviewed by a native speaker)\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"MIME-Version: 1.0\n"
+
+#: src/contentScript/links/followLinkTooltip.ts:29
+#, javascript-format
+msgid "Follow link: %s"
+msgstr "링크 열기: %s"
+
+#: src/contentScript/syncIndicatorPanel.ts:35
+msgid "Not syncing"
+msgstr "동기화 중이 아님"
+
+#: src/contentScript/syncIndicatorPanel.ts:40
+msgid "Syncing..."
+msgstr "동기화 중..."
+
+#: src/contentScript/syncIndicatorPanel.ts:45
+msgid "Failed to sync"
+msgstr "동기화 실패"
+
+#: src/contentScript/wordCountPanel.ts:27
+msgid "Words"
+msgstr "단어"
+
+#: src/settings.ts:11
+msgid "Extra editor settings"
+msgstr "추가 편집기 설정"
+
+#: src/settings.ts:12
+msgid "Additional settings for Joplin's beta and mobile Markdown editors."
+msgstr "Joplin 베타 및 모바일 Markdown 편집기를 위한 추가 설정입니다."
+
+#: src/settings.ts:33
+msgid "Show line numbers"
+msgstr "줄 번호 표시"
+
+#: src/settings.ts:38
+msgid "Enable code folding"
+msgstr "코드 접기 사용"
+
+#: src/settings.ts:43
+msgid "Enable autocomplete"
+msgstr "자동 완성 사용"
+
+#: src/settings.ts:48
+msgid "Highlight the gutter for the active line"
+msgstr "현재 줄의 거터 강조"
+
+#: src/settings.ts:49
+msgid "Requires \"show line numbers\" to be enabled."
+msgstr "\"줄 번호 표시\"가 활성화되어 있어야 합니다."
+
+#: src/settings.ts:54
+msgid "Highlight active line"
+msgstr "현재 줄 강조"
+
+#: src/settings.ts:59
+msgid "Highlight spaces"
+msgstr "공백 강조"
+
+#: src/settings.ts:64
+msgid "Highlight trailing spaces"
+msgstr "줄 끝 공백 강조"
+
+#: src/settings.ts:69
+msgid "Highlight selection matches"
+msgstr "선택 항목과 일치하는 부분 강조"
+
+#: src/settings.ts:74
+msgid "Highlight matching brackets"
+msgstr "짝이 맞는 괄호 강조"
+
+#: src/settings.ts:84
+#, javascript-format
+msgid "%s (small)"
+msgstr "%s (작게)"
+
+#: src/settings.ts:90
+#, javascript-format
+msgid "%s (large)"
+msgstr "%s (크게)"
+
+#: src/settings.ts:95
+msgid "Editor maximum width"
+msgstr "편집기 최대 너비"
+
+#: src/settings.ts:96
+msgid "Setting this to a positive number (e.g. 600) centers the editor and prevents it from having a width larger than this size. Set this to \"none\" for the editor to fill the screen."
+msgstr "양수(예: 600)로 설정하면 편집기가 가운데 정렬되고 너비가 이 크기를 넘지 않습니다. 편집기가 화면을 가득 채우게 하려면 \"없음\"으로 설정하세요."
+
+#: src/settings.ts:101
+msgid "Show background grid pattern"
+msgstr "배경 격자 무늬 표시"
+
+#: src/settings.ts:106
+msgid "Show word count"
+msgstr "단어 수 표시"
+
+#: src/settings.ts:112
+msgid "Show visual sync indicator"
+msgstr "동기화 상태 표시기 표시"
+
+#: src/settings.ts:113
+msgid "Shows the sync status in the Markdown editor."
+msgstr "Markdown 편집기에 동기화 상태를 표시합니다."
+
+#: src/settings.ts:117
+msgid "With text"
+msgstr "텍스트로"
+
+#: src/settings.ts:118
+msgid "With an icon"
+msgstr "아이콘으로"
+
+#: src/settings.ts:126
+msgid "Hide Markdown"
+msgstr "Markdown 숨기기"
+
+#: src/settings.ts:127
+msgid ""
+"Hides/replaces certain Markdown characters when the cursor is on a different line.\n"
+"\n"
+"When set to \"Some\", only some Markup is rendered. When set to \"More\", somewhat more Markup is rendered, though may not be rendered correctly."
+msgstr ""
+"커서가 다른 줄에 있을 때 특정 Markdown 문자를 숨기거나 대체합니다.\n"
+"\n"
+"\"일부\"로 설정하면 일부 마크업만 렌더링됩니다. \"더 많이\"로 설정하면 더 많은 마크업이 렌더링되지만 올바르게 표시되지 않을 수 있습니다."
+
+#: src/settings.ts:131
+msgid "Some"
+msgstr "일부"
+
+#: src/settings.ts:133
+msgid "More (experimental)"
+msgstr "더 많이 (실험적)"
+
+#: src/settings.ts:140
+msgid "Show link tooltip"
+msgstr "링크 툴팁 표시"
+
+#: src/settings.ts:141
+msgid "Shows tooltips that allow opening links under the cursor"
+msgstr "커서 아래의 링크를 열 수 있는 툴팁을 표시합니다"
+
+#: src/settings.ts:149
+msgid "Text direction"
+msgstr "텍스트 방향"
+
+#: src/settings.ts:150
+msgid "Overrides the default direction of text in the CodeMirror editor. For most users, this should be set to \"auto\"."
+msgstr "CodeMirror 편집기의 기본 텍스트 방향을 재정의합니다. 대부분의 사용자는 \"자동\"으로 두는 것이 좋습니다."
+
+#: src/settings.ts:153
+msgid "Auto"
+msgstr "자동"
+
+#: src/settings.ts:154
+msgid "Left-to-right"
+msgstr "왼쪽에서 오른쪽"
+
+#: src/settings.ts:155
+msgid "Right-to-left"
+msgstr "오른쪽에서 왼쪽"
+
+#: src/settings.ts:83
+msgctxt "editor maximum width"
+msgid "None"
+msgstr "없음"
+
+#: src/settings.ts:116
+msgctxt "sync indicator"
+msgid "No"
+msgstr "표시 안 함"
+
+#: src/settings.ts:130
+msgctxt "hide markdown"
+msgid "None"
+msgstr "없음"
+

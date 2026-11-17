@@ -1,0 +1,186 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: joplin-plugin-extra-editor-settings-i18n\n"
+"Language: zh_TW\n"
+"Language-Team: Chinese (Traditional)\n"
+"Last-Translator: Machine-assisted translation (not reviewed by a native speaker)\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"MIME-Version: 1.0\n"
+
+#: src/contentScript/links/followLinkTooltip.ts:29
+#, javascript-format
+msgid "Follow link: %s"
+msgstr "開啟連結：%s"
+
+#: src/contentScript/syncIndicatorPanel.ts:35
+msgid "Not syncing"
+msgstr "未在同步"
+
+#: src/contentScript/syncIndicatorPanel.ts:40
+msgid "Syncing..."
+msgstr "同步中..."
+
+#: src/contentScript/syncIndicatorPanel.ts:45
+msgid "Failed to sync"
+msgstr "同步失敗"
+
+#: src/contentScript/wordCountPanel.ts:27
+msgid "Words"
+msgstr "字數"
+
+#: src/settings.ts:11
+msgid "Extra editor settings"
+msgstr "編輯器額外設定"
+
+#: src/settings.ts:12
+msgid "Additional settings for Joplin's beta and mobile Markdown editors."
+msgstr "適用於 Joplin 測試版及行動版 Markdown 編輯器的額外設定。"
+
+#: src/settings.ts:33
+msgid "Show line numbers"
+msgstr "顯示行號"
+
+#: src/settings.ts:38
+msgid "Enable code folding"
+msgstr "啟用程式碼摺疊"
+
+#: src/settings.ts:43
+msgid "Enable autocomplete"
+msgstr "啟用自動完成"
+
+#: src/settings.ts:48
+msgid "Highlight the gutter for the active line"
+msgstr "醒目提示目前行的行號欄"
+
+#: src/settings.ts:49
+msgid "Requires \"show line numbers\" to be enabled."
+msgstr "需要啟用「顯示行號」。"
+
+#: src/settings.ts:54
+msgid "Highlight active line"
+msgstr "醒目提示目前行"
+
+#: src/settings.ts:59
+msgid "Highlight spaces"
+msgstr "醒目提示空格"
+
+#: src/settings.ts:64
+msgid "Highlight trailing spaces"
+msgstr "醒目提示行尾空格"
+
+#: src/settings.ts:69
+msgid "Highlight selection matches"
+msgstr "醒目提示與選取內容相符的文字"
+
+#: src/settings.ts:74
+msgid "Highlight matching brackets"
+msgstr "醒目提示對應的括號"
+
+#: src/settings.ts:84
+#, javascript-format
+msgid "%s (small)"
+msgstr "%s（小）"
+
+#: src/settings.ts:90
+#, javascript-format
+msgid "%s (large)"
+msgstr "%s（大）"
+
+#: src/settings.ts:95
+msgid "Editor maximum width"
+msgstr "編輯器最大寬度"
+
+#: src/settings.ts:96
+msgid "Setting this to a positive number (e.g. 600) centers the editor and prevents it from having a width larger than this size. Set this to \"none\" for the editor to fill the screen."
+msgstr "設定為正數（例如 600）時，編輯器會置中顯示，且寬度不會超過此值。設定為「無」可讓編輯器填滿畫面。"
+
+#: src/settings.ts:101
+msgid "Show background grid pattern"
+msgstr "顯示背景格線"
+
+#: src/settings.ts:106
+msgid "Show word count"
+msgstr "顯示字數"
+
+#: src/settings.ts:112
+msgid "Show visual sync indicator"
+msgstr "顯示同步狀態指示器"
+
+#: src/settings.ts:113
+msgid "Shows the sync status in the Markdown editor."
+msgstr "在 Markdown 編輯器中顯示同步狀態。"
+
+#: src/settings.ts:117
+msgid "With text"
+msgstr "文字"
+
+#: src/settings.ts:118
+msgid "With an icon"
+msgstr "圖示"
+
+#: src/settings.ts:126
+msgid "Hide Markdown"
+msgstr "隱藏 Markdown"
+
+#: src/settings.ts:127
+msgid ""
+"Hides/replaces certain Markdown characters when the cursor is on a different line.\n"
+"\n"
+"When set to \"Some\", only some Markup is rendered. When set to \"More\", somewhat more Markup is rendered, though may not be rendered correctly."
+msgstr ""
+"當游標位於其他行時，隱藏或取代特定的 Markdown 字元。\n"
+"\n"
+"設定為「部分」時，僅轉譯部分標記。設定為「更多」時，會轉譯更多標記，但可能無法正確顯示。"
+
+#: src/settings.ts:131
+msgid "Some"
+msgstr "部分"
+
+#: src/settings.ts:133
+msgid "More (experimental)"
+msgstr "更多（實驗性）"
+
+#: src/settings.ts:140
+msgid "Show link tooltip"
+msgstr "顯示連結提示"
+
+#: src/settings.ts:141
+msgid "Shows tooltips that allow opening links under the cursor"
+msgstr "顯示可開啟游標處連結的提示"
+
+#: src/settings.ts:149
+msgid "Text direction"
+msgstr "文字方向"
+
+#: src/settings.ts:150
+msgid "Overrides the default direction of text in the CodeMirror editor. For most users, this should be set to \"auto\"."
+msgstr "覆寫 CodeMirror 編輯器中文字的預設方向。大多數使用者應設定為「自動」。"
+
+#: src/settings.ts:153
+msgid "Auto"
+msgstr "自動"
+
+#: src/settings.ts:154
+msgid "Left-to-right"
+msgstr "由左至右"
+
+#: src/settings.ts:155
+msgid "Right-to-left"
+msgstr "由右至左"
+
+#: src/settings.ts:83
+msgctxt "editor maximum width"
+msgid "None"
+msgstr "無"
+
+#: src/settings.ts:116
+msgctxt "sync indicator"
+msgid "No"
+msgstr "不顯示"
+
+#: src/settings.ts:130
+msgctxt "hide markdown"
+msgid "None"
+msgstr "無"
+
