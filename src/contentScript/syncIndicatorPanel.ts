@@ -2,7 +2,7 @@ import { EditorView, Panel, showPanel, ViewUpdate } from "@codemirror/view";
 import { PostMessageHandler } from "../../api/types";
 import { SyncIndicatorMode, SyncStatus } from "../types";
 import { Extension } from "@codemirror/state";
-import localization from "../localization";
+import { _ } from "../localization";
 import syncIcon from "./icons/syncIcon";
 import iconDataUrl from "./icons/iconDataUrl";
 import editIcon from "./icons/editIcon";
@@ -32,17 +32,17 @@ const makeSyncIndicatorPanel = (postMessage: PostMessageHandler) => (_view: Edit
 		let statusText = '';
 		switch (syncStatus) {
 			case SyncStatus.NotSyncing:
-				statusText = localization.sync_status__not_syncing;
+				statusText = _('Not syncing');
 				container.classList.add('-not-syncing');
 				break;
 			
 			case SyncStatus.Syncing:
-				statusText = localization.sync_status__syncing;
+				statusText = _('Syncing...');
 				container.classList.add('-syncing');
 				break;
 			
 			case SyncStatus.SyncedWithErrors:
-				statusText = localization.sync_status__synced_with_errors;
+				statusText = _('Failed to sync');
 				container.classList.add('-synced-with-errors');
 				break;
 		}

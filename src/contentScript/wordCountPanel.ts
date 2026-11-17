@@ -1,6 +1,6 @@
 import { EditorState } from "@codemirror/state";
 import { EditorView, Panel, showPanel, ViewUpdate } from "@codemirror/view";
-import localization from "../localization";
+import { _ } from "../localization";
 
 const wordCountPanel = (view: EditorView): Panel => {
 	const container = document.createElement('div');
@@ -24,7 +24,7 @@ const wordCountPanel = (view: EditorView): Panel => {
 
 	const updateContent = (state: EditorState) => {
 		const wordCount = countWords(state.doc.toString());
-		container.textContent = `${localization.words}: ${numberFormatter.format(wordCount)}`;
+		container.textContent = `${_('Words')}: ${numberFormatter.format(wordCount)}`;
 	};
 	updateContent(view.state);
 

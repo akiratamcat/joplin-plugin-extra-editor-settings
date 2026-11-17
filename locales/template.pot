@@ -1,0 +1,180 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: joplin-plugin-extra-editor-settings-i18n\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"MIME-Version: 1.0\n"
+
+#: src/contentScript/links/followLinkTooltip.ts:29
+#, javascript-format
+msgid "Follow link: %s"
+msgstr ""
+
+#: src/contentScript/syncIndicatorPanel.ts:35
+msgid "Not syncing"
+msgstr ""
+
+#: src/contentScript/syncIndicatorPanel.ts:40
+msgid "Syncing..."
+msgstr ""
+
+#: src/contentScript/syncIndicatorPanel.ts:45
+msgid "Failed to sync"
+msgstr ""
+
+#: src/contentScript/wordCountPanel.ts:27
+msgid "Words"
+msgstr ""
+
+#: src/settings.ts:11
+msgid "Extra editor settings"
+msgstr ""
+
+#: src/settings.ts:12
+msgid "Additional settings for Joplin's beta and mobile Markdown editors."
+msgstr ""
+
+#: src/settings.ts:33
+msgid "Show line numbers"
+msgstr ""
+
+#: src/settings.ts:38
+msgid "Enable code folding"
+msgstr ""
+
+#: src/settings.ts:43
+msgid "Enable autocomplete"
+msgstr ""
+
+#: src/settings.ts:48
+msgid "Highlight the gutter for the active line"
+msgstr ""
+
+#: src/settings.ts:49
+msgid "Requires \"show line numbers\" to be enabled."
+msgstr ""
+
+#: src/settings.ts:54
+msgid "Highlight active line"
+msgstr ""
+
+#: src/settings.ts:59
+msgid "Highlight spaces"
+msgstr ""
+
+#: src/settings.ts:64
+msgid "Highlight trailing spaces"
+msgstr ""
+
+#: src/settings.ts:69
+msgid "Highlight selection matches"
+msgstr ""
+
+#: src/settings.ts:74
+msgid "Highlight matching brackets"
+msgstr ""
+
+#: src/settings.ts:84
+#, javascript-format
+msgid "%s (small)"
+msgstr ""
+
+#: src/settings.ts:90
+#, javascript-format
+msgid "%s (large)"
+msgstr ""
+
+#: src/settings.ts:95
+msgid "Editor maximum width"
+msgstr ""
+
+#: src/settings.ts:96
+msgid "Setting this to a positive number (e.g. 600) centers the editor and prevents it from having a width larger than this size. Set this to \"none\" for the editor to fill the screen."
+msgstr ""
+
+#: src/settings.ts:101
+msgid "Show background grid pattern"
+msgstr ""
+
+#: src/settings.ts:106
+msgid "Show word count"
+msgstr ""
+
+#: src/settings.ts:112
+msgid "Show visual sync indicator"
+msgstr ""
+
+#: src/settings.ts:113
+msgid "Shows the sync status in the Markdown editor."
+msgstr ""
+
+#: src/settings.ts:117
+msgid "With text"
+msgstr ""
+
+#: src/settings.ts:118
+msgid "With an icon"
+msgstr ""
+
+#: src/settings.ts:126
+msgid "Hide Markdown"
+msgstr ""
+
+#: src/settings.ts:127
+msgid ""
+"Hides/replaces certain Markdown characters when the cursor is on a different line.\n"
+"\n"
+"When set to \"Some\", only some Markup is rendered. When set to \"More\", somewhat more Markup is rendered, though may not be rendered correctly."
+msgstr ""
+
+#: src/settings.ts:131
+msgid "Some"
+msgstr ""
+
+#: src/settings.ts:133
+msgid "More (experimental)"
+msgstr ""
+
+#: src/settings.ts:140
+msgid "Show link tooltip"
+msgstr ""
+
+#: src/settings.ts:141
+msgid "Shows tooltips that allow opening links under the cursor"
+msgstr ""
+
+#: src/settings.ts:149
+msgid "Text direction"
+msgstr ""
+
+#: src/settings.ts:150
+msgid "Overrides the default direction of text in the CodeMirror editor. For most users, this should be set to \"auto\"."
+msgstr ""
+
+#: src/settings.ts:153
+msgid "Auto"
+msgstr ""
+
+#: src/settings.ts:154
+msgid "Left-to-right"
+msgstr ""
+
+#: src/settings.ts:155
+msgid "Right-to-left"
+msgstr ""
+
+#: src/settings.ts:83
+msgctxt "editor maximum width"
+msgid "None"
+msgstr ""
+
+#: src/settings.ts:116
+msgctxt "sync indicator"
+msgid "No"
+msgstr ""
+
+#: src/settings.ts:130
+msgctxt "hide markdown"
+msgid "None"
+msgstr ""
+

@@ -1,184 +1,127 @@
-interface AppLocalization {
-	settings__appName: string;
-	settings__description: string;
-	setting__showLineNumber: string;
-	setting__enableCodeFolding: string;
-	setting__enableAutocomplete: string;
-	setting__highlightLineGutter: string;
-	setting__highlightLineGutter__description: string;
-	setting__highlightActiveLine: string;
-	setting__highlightSpaces: string;
-	setting__highlightTrailingSpaces: string;
-	setting__highlightSelectionMatches: string;
-	setting__bracketMatching: string;
-	setting__showGridPattern: string;
-	setting__showWordCount: string;
-	setting__showLinkTooltip: string;
-	setting__showLinkTooltip__description: string;
-	setting__textDirection: string;
-	setting__textDirection__description: string;
-	setting__textDirection__auto: string;
-	setting__textDirection__leftToRight: string;
-	setting__textDirection__rightToLeft: string;
+// gettext-style localization.
+//
+// Translations live in /locales/*.po and are compiled to ./locales/generated.json
+// by scripts/compileLocales.mjs before building or testing.
+//
+// Usage:
+//   _('Show line numbers')
+//   _('Follow link: %s', url)
+//   _c('editor maximum width', 'None')   // with msgctxt
 
-	setting__hideMarkdown: string;
-	setting__hideMarkdown__description: string;
-	setting__hideMarkdown__none: string;
-	setting__hideMarkdown__some: string;
-	setting__hideMarkdown__more: string;
+import catalogsJson from './locales/generated.json';
 
-	setting__editorMaximumWidth: string;
-	setting__editorMaximumWidth__description: string;
-	setting__editorMaximumWidth__none: string;
+// Maps "msgid" (or "msgctxt\u0004msgid") to the translated string.
+export type Catalog = Record<string, string>;
 
-	setting__showVisualSyncIndicator: string;
-	setting__showVisualSyncIndicator__description: string;
-	setting__showVisualSyncIndicator__textual: string;
-	setting__showVisualSyncIndicator__icon: string;
+const catalogs: Record<string, Catalog> = catalogsJson as Record<string, Catalog>;
 
-	sync_status__not_syncing: string;
-	sync_status__syncing: string;
-	sync_status__synced_with_errors: string;
-
-	link__followUrl(url: string): string;
-
-	words: string;
-	yes: string;
-	no: string;
-}
-
-const defaultStrings: AppLocalization = {
-	settings__appName: 'Extra editor settings',
-	settings__description: 'Additional settings for Joplin\'s beta and mobile Markdown editors.',
-	setting__showLineNumber: 'Show line numbers',
-	setting__enableCodeFolding: 'Enable code folding',
-	setting__enableAutocomplete: 'Enable autocomplete',
-
-	setting__highlightLineGutter: 'Highlight the gutter for the active line',
-	setting__highlightLineGutter__description: 'Requires "show line numbers" to be enabled.',
-	setting__highlightActiveLine: 'Highlight active line',
-	setting__highlightSpaces: 'Highlight spaces',
-	setting__highlightTrailingSpaces: 'Highlight trailing spaces',
-	setting__highlightSelectionMatches: 'Highlight selection matches',
-	setting__bracketMatching: 'Highlight matching brackets',
-
-	setting__showGridPattern: 'Show background grid pattern',
-	setting__showLinkTooltip: 'Show link tooltip',
-	setting__showLinkTooltip__description: 'Shows tooltips that allow opening links under the cursor',
-	setting__showWordCount: 'Show word count',
-	setting__showVisualSyncIndicator: 'Show visual sync indicator',
-	setting__showVisualSyncIndicator__description: 'Shows the sync status in the Markdown editor.',
-
-	setting__editorMaximumWidth: 'Editor maximum width',
-	setting__editorMaximumWidth__description: 'Setting this to a positive number (e.g. 600) centers the editor and prevents it from having a width larger than this size. Set this to "none" for the editor to fill the screen.',
-	setting__editorMaximumWidth__none: 'None',
-
-	setting__textDirection: 'Text direction',
-	setting__textDirection__description: 'Overrides the default direction of text in the CodeMirror editor. For most users, this should be set to "auto".',
-	setting__textDirection__auto: 'Auto',
-	setting__textDirection__leftToRight: 'Left-to-right',
-	setting__textDirection__rightToLeft: 'Right-to-left',
-
-	setting__showVisualSyncIndicator__textual: 'With text',
-	setting__showVisualSyncIndicator__icon: 'With an icon',
-
-	setting__hideMarkdown: 'Hide Markdown',
-	setting__hideMarkdown__description: 'Hides/replaces certain Markdown characters when the cursor is on a different line.\n\nWhen set to "Some", only some Markup is rendered. When set to "More", somewhat more Markup is rendered, though may not be rendered correctly.',
-	setting__hideMarkdown__none: 'None',
-	setting__hideMarkdown__some: 'Some',
-	setting__hideMarkdown__more: 'More (experimental)',
-
-	sync_status__not_syncing: 'Not syncing',
-	sync_status__syncing: 'Syncing...',
-	sync_status__synced_with_errors: 'Failed to sync',
-
-	link__followUrl(url) { return `Follow link: ${url}`; },
-
-	words: 'Words',
-	yes: 'Yes',
-	no: 'No',
+// Locales that should be mapped to a different catalog than a simple
+// language-prefix match would choose.
+const localeAliases: Record<string, string> = {
+	zh_HK: 'zh_TW',
+	zh_MO: 'zh_TW',
+	zh_Hant: 'zh_TW',
+	zh_SG: 'zh_CN',
+	zh_Hans: 'zh_CN',
+	zh: 'zh_CN',
 };
 
-const localizations: Record<string, AppLocalization> = {
-	en: defaultStrings,
+const contextSeparator = '\u0004';
 
-	es: {
-		...defaultStrings,
-	},
-	hr: {
-		settings__appName: 'Dodatne postavke uređivača',
-		settings__description: 'Dodatne postavke za Joplin beta i mobilne Markdown uređivače.',
-		setting__showLineNumber: 'Prikaži brojeve redaka',
-		setting__enableCodeFolding: 'Uključi preklapanje koda',
-		setting__enableAutocomplete: 'Uključi automatsko dovršavanje',
+const normalizeLocale = (locale: string) => locale.trim().replace(/-/g, '_');
 
-		setting__highlightLineGutter: 'Istakni margine aktivnog retka',
-		setting__highlightLineGutter__description: 'Zahtijeva da je postavka „Prikaži brojeve redaka” uključena.',
-		setting__highlightActiveLine: 'Istakni aktivni redak',
-		setting__highlightSpaces: 'Istakni razmake',
-		setting__highlightTrailingSpaces: 'Istakni završne razmake',
-		setting__highlightSelectionMatches: 'Istakni podudaranja odabira',
-		setting__bracketMatching: 'Istakni poklapajuće zagrade',
+/**
+ * Returns the name of the catalog best matching `locale`, or null if none matches.
+ * Matching order: exact match, alias, then any catalog with the same language code.
+ */
+export const resolveLocale = (locale: string, available: string[]): string | null => {
+	if (!locale) return null;
+	const normalized = normalizeLocale(locale);
+	const lowerAvailable = available.map(l => l.toLowerCase());
 
-		setting__showGridPattern: 'Prikaži uzorak mreže pozadine',
-		setting__showLinkTooltip: 'Prikaži opis poveznice',
-		setting__showLinkTooltip__description: 'Prikazuje opise koji omogućuju otvaranje poveznica ispod kursora',
-		setting__showWordCount: 'Prikaži broj riječi',
-		setting__showVisualSyncIndicator: 'Prikaži vizualni indikator sinkronizacije',
-		setting__showVisualSyncIndicator__description: 'Prikazuje stanje sinkronizacije u Markdown uređivaču.',
+	const findExact = (name: string) => {
+		const index = lowerAvailable.indexOf(name.toLowerCase());
+		return index === -1 ? null : available[index];
+	};
 
-		setting__editorMaximumWidth: 'Maksimalna širina uređivača',
-		setting__editorMaximumWidth__description: 'Postavljanje pozitivnog broja (npr. 600) centrirat će uređivač i spriječiti da njegova širina bude veća od ove vrijednosti. Postavi na „bez” da uređivač popuni ekran.',
-		setting__editorMaximumWidth__none: 'Bez',
+	const exact = findExact(normalized);
+	if (exact) return exact;
 
-		setting__textDirection: 'Smjer teksta',
-		setting__textDirection__description: 'Prekida zadani smjer teksta u CodeMirror uređivaču. Za većinu korisnika, ovo bi trebalo biti postavljeno na „Automatski”.',
-		setting__textDirection__auto: 'Automatski',
-		setting__textDirection__leftToRight: 'S lijeva na desno',
-		setting__textDirection__rightToLeft: 'S desna na lijevo',
+	// e.g. "zh_HK" or "zh_Hant_TW" (but not plain "zh", which is handled below)
+	const lowerNormalized = normalized.toLowerCase();
+	for (const [from, to] of Object.entries(localeAliases)) {
+		const lowerFrom = from.toLowerCase();
+		if (!from.includes('_')) continue;
+		if (lowerNormalized === lowerFrom || lowerNormalized.startsWith(`${lowerFrom}_`)) {
+			const aliased = findExact(to);
+			if (aliased) return aliased;
+		}
+	}
 
-		setting__showVisualSyncIndicator__textual: 'S tekstom',
-		setting__showVisualSyncIndicator__icon: 'S ikonom',
+	const language = normalized.split('_')[0].toLowerCase();
+	if (localeAliases[language]) {
+		const aliased = findExact(localeAliases[language]);
+		if (aliased) return aliased;
+	}
 
-		setting__hideMarkdown: 'Sakrij Markdown',
-		setting__hideMarkdown__description: 'Skriva/zamijenjuje određene Markdown znakove kada se kursor nalazi na jednom drugom retku.\n\nKada je postavljeno na „Neki”, prikazuje se samo dio markup-a. Kada je postavljeno na „Više”, prikazuje se nešto više markup-a, ali možda neće ispravno prikazati',
-		setting__hideMarkdown__none: 'Bez',
-		setting__hideMarkdown__some: 'Neki',
-		setting__hideMarkdown__more: 'Više (eksperimentalno)',
-
-		sync_status__not_syncing: 'Ne sinkronizira se',
-		sync_status__syncing: 'Sinkronizacija je u tijeku …',
-		sync_status__synced_with_errors: 'Sinkronizacija nije uspjela',
-
-		link__followUrl(url) { return `Prati vezu: ${url}`; },
-
-		words: 'Riječi',
-		yes: 'Da',
-		no: 'Ne',
-	},
+	const languageMatch = available.find(l => l.split('_')[0].toLowerCase() === language);
+	return languageMatch ?? null;
 };
 
-let localization: AppLocalization | undefined;
+let currentCatalog: Catalog = {};
+let currentLocale = 'en';
 
-const languages = [...navigator.languages];
-for (const language of navigator.languages) {
-	const localeSep = language.indexOf('-');
+export const availableLocales = () => Object.keys(catalogs);
 
-	if (localeSep !== -1) {
-		languages.push(language.substring(0, localeSep));
+/** Sets the active locale. Accepts Joplin-style ("ja_JP") or BCP 47 ("ja-JP") names. */
+export const setLocale = (locale: string | null | undefined) => {
+	const resolved = locale ? resolveLocale(locale, availableLocales()) : null;
+	if (resolved) {
+		currentCatalog = catalogs[resolved];
+		currentLocale = resolved;
+	} else {
+		currentCatalog = {};
+		currentLocale = 'en';
 	}
-}
+	return currentLocale;
+};
 
-for (const locale of languages) {
-	if (locale in localizations) {
-		localization = localizations[locale];
-		break;
+export const getLocale = () => currentLocale;
+
+/** Picks a locale from the browser/OS languages. Used as a fallback when Joplin's locale is unavailable. */
+export const setLocaleFromNavigator = () => {
+	const languages = typeof navigator !== 'undefined' ? [...(navigator.languages ?? [])] : [];
+	for (const language of languages) {
+		if (resolveLocale(language, availableLocales())) {
+			return setLocale(language);
+		}
 	}
-}
+	return setLocale('en');
+};
 
-if (!localization) {
-	console.log('No supported localization found. Falling back to default.');
-	localization = defaultStrings;
-}
+const formatString = (template: string, args: (string | number)[]) => {
+	let index = 0;
+	return template.replace(/%%|%s/g, match => {
+		if (match === '%%') return '%';
+		const arg = args[index++];
+		return arg === undefined ? '' : String(arg);
+	});
+};
 
-export default localization!;
+const lookup = (key: string) => {
+	const translated = currentCatalog[key];
+	return translated ? translated : null;
+};
+
+/** Translates `message` (gettext). `%s` placeholders are replaced by `args` in order. */
+export const _ = (message: string, ...args: (string | number)[]) => {
+	return formatString(lookup(message) ?? message, args);
+};
+
+/** Translates `message` with a disambiguating context (pgettext). */
+export const _c = (context: string, message: string, ...args: (string | number)[]) => {
+	return formatString(lookup(`${context}${contextSeparator}${message}`) ?? message, args);
+};
+
+// Default until the plugin/content script sets Joplin's locale explicitly.
+setLocaleFromNavigator();

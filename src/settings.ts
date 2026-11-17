@@ -1,15 +1,15 @@
 import joplin from "api";
 import { SettingItem, SettingItemType, SettingStorage } from "api/types";
 import { HideMarkdownMode, PluginSettings, SyncIndicatorMode, TextDirection } from "./types";
-import localization from "./localization";
+import { _, _c } from "./localization";
 import { isMobile } from "./utils/isMobile";
 import isVersionGreater from "./utils/isVersionGreater";
 
 export const registerSettings = async (applySettings: (settings: PluginSettings)=>void) => {
 	const sectionName = 'codemirror6-extended-options';
 	await joplin.settings.registerSection(sectionName, {
-		label: localization.settings__appName,
-		description: localization.settings__description,
+		label: _('Extra editor settings'),
+		description: _('Additional settings for Joplin\'s beta and mobile Markdown editors.'),
 		iconName: 'fas fa-edit',
 	});
 	const onMobile = await isMobile();
@@ -30,48 +30,48 @@ export const registerSettings = async (applySettings: (settings: PluginSettings)
 		lineNumbers: {
 			...defaultSettingOptions,
 			value: true,
-			label: localization.setting__showLineNumber,
+			label: _('Show line numbers'),
 		},
 		codeFolding: {
 			...defaultSettingOptions,
 			value: false,
-			label: localization.setting__enableCodeFolding,
+			label: _('Enable code folding'),
 		},
 		enableAutocomplete: {
 			...defaultSettingOptions,
 			value: false,
-			label: localization.setting__enableAutocomplete,
+			label: _('Enable autocomplete'),
 		},
 		highlightActiveLineGutter: {
 			...defaultSettingOptions,
 			value: true,
-			label: localization.setting__highlightLineGutter,
-			description: localization.setting__highlightLineGutter__description,
+			label: _('Highlight the gutter for the active line'),
+			description: _('Requires "show line numbers" to be enabled.'),
 		},
 		highlightActiveLine: {
 			...defaultSettingOptions,
 			value: false,
-			label: localization.setting__highlightActiveLine,
+			label: _('Highlight active line'),
 		},
 		highlightSpaces: {
 			...defaultSettingOptions,
 			value: false,
-			label: localization.setting__highlightSpaces,
+			label: _('Highlight spaces'),
 		},
 		highlightTrailingSpaces: {
 			...defaultSettingOptions,
 			value: false,
-			label: localization.setting__highlightTrailingSpaces,
+			label: _('Highlight trailing spaces'),
 		},
 		highlightSelectionMatches: {
 			...defaultSettingOptions,
 			value: false,
-			label: localization.setting__highlightSelectionMatches,
+			label: _('Highlight selection matches'),
 		},
 		bracketMatching: {
 			...defaultSettingOptions,
 			value: false,
-			label: localization.setting__bracketMatching,
+			label: _('Highlight matching brackets'),
 		},
 		editorMaximumWidth: {
 			...defaultSettingOptions,
@@ -80,42 +80,42 @@ export const registerSettings = async (applySettings: (settings: PluginSettings)
 			value: 'none',
 
 			options: {
-				['none']: localization.setting__editorMaximumWidth__none,
-				['300px']: '300 (small)',
+				['none']: _c('editor maximum width', 'None'),
+				['300px']: _('%s (small)', '300'),
 				['400px']: '400',
 				['500px']: '500',
 				['600px']: '600',
 				['800px']: '800',
 				['1000px']: '1000',
-				['1500px']: '1500 (large)',
+				['1500px']: _('%s (large)', '1500'),
 			},
 
 			type: SettingItemType.String,
 			isEnum: true,
-			label: localization.setting__editorMaximumWidth,
-			description: localization.setting__editorMaximumWidth__description,
+			label: _('Editor maximum width'),
+			description: _('Setting this to a positive number (e.g. 600) centers the editor and prevents it from having a width larger than this size. Set this to "none" for the editor to fill the screen.'),
 		},
 		gridPattern: {
 			...defaultSettingOptions,
 			value: false,
-			label: localization.setting__showGridPattern,
+			label: _('Show background grid pattern'),
 		},
 		wordCount: {
 			...defaultSettingOptions,
 			value: false,
-			label: localization.setting__showWordCount,
+			label: _('Show word count'),
 		},
 		syncIndicator: {
 			...defaultSettingOptions,
 			type: SettingItemType.String,
 			value: SyncIndicatorMode.NotShown,
-			label: localization.setting__showVisualSyncIndicator,
-			description: localization.setting__showVisualSyncIndicator__description,
+			label: _('Show visual sync indicator'),
+			description: _('Shows the sync status in the Markdown editor.'),
 			isEnum: true,
 			options: {
-				[SyncIndicatorMode.NotShown]: localization.no,
-				[SyncIndicatorMode.Text]: localization.setting__showVisualSyncIndicator__textual,
-				[SyncIndicatorMode.Icon]: localization.setting__showVisualSyncIndicator__icon,
+				[SyncIndicatorMode.NotShown]: _c('sync indicator', 'No'),
+				[SyncIndicatorMode.Text]: _('With text'),
+				[SyncIndicatorMode.Icon]: _('With an icon'),
 			},
 		},
 		hideMarkdown: {
@@ -123,22 +123,22 @@ export const registerSettings = async (applySettings: (settings: PluginSettings)
 			type: SettingItemType.String,
 
 			value: HideMarkdownMode.None,
-			label: localization.setting__hideMarkdown,
-			description: localization.setting__hideMarkdown__description,
+			label: _('Hide Markdown'),
+			description: _('Hides/replaces certain Markdown characters when the cursor is on a different line.\n\nWhen set to "Some", only some Markup is rendered. When set to "More", somewhat more Markup is rendered, though may not be rendered correctly.'),
 			isEnum: true,
 			options: {
-				[HideMarkdownMode.None]: localization.setting__hideMarkdown__none,
-				[HideMarkdownMode.Some]: localization.setting__hideMarkdown__some,
+				[HideMarkdownMode.None]: _c('hide markdown', 'None'),
+				[HideMarkdownMode.Some]: _('Some'),
 				...(supportsExtendedRender ? {
-					[HideMarkdownMode.More]: localization.setting__hideMarkdown__more,
+					[HideMarkdownMode.More]: _('More (experimental)'),
 				} : {}),
 			},
 		},
 		showLinkTooltip: {
 			...defaultSettingOptions,
 			value: false,
-			label: localization.setting__showLinkTooltip,
-			description: localization.setting__showLinkTooltip__description,
+			label: _('Show link tooltip'),
+			description: _('Shows tooltips that allow opening links under the cursor'),
 		},
 		textDirection: {
 			...defaultSettingOptions,
@@ -146,13 +146,13 @@ export const registerSettings = async (applySettings: (settings: PluginSettings)
 
 			advanced: true,
 			value: TextDirection.Auto,
-			label: localization.setting__textDirection,
-			description: localization.setting__textDirection__description,
+			label: _('Text direction'),
+			description: _('Overrides the default direction of text in the CodeMirror editor. For most users, this should be set to "auto".'),
 			isEnum: true,
 			options: {
-				[TextDirection.Auto]: localization.setting__textDirection__auto,
-				[TextDirection.LeftToRight]: localization.setting__textDirection__leftToRight,
-				[TextDirection.RightToLeft]: localization.setting__textDirection__rightToLeft,
+				[TextDirection.Auto]: _('Auto'),
+				[TextDirection.LeftToRight]: _('Left-to-right'),
+				[TextDirection.RightToLeft]: _('Right-to-left'),
 			},
 		},
 	};

@@ -1,7 +1,7 @@
 import { syntaxTree } from "@codemirror/language";
 import { EditorState, StateField } from "@codemirror/state";
 import { EditorView, showTooltip, Tooltip } from "@codemirror/view";
-import localization from "../../localization";
+import { _ } from "../../localization";
 import referenceLinkStateField from "./utils/referenceLinksStateField";
 import findLineMatchingLink from "./utils/findLineMatchingLink";
 import getUrlAtPosition from "./utils/getUrlAtPosition";
@@ -26,7 +26,7 @@ const getLinkTooltips = (onOpenLink: OnOpenLink, state: EditorState) => {
 
 				const link = document.createElement('button');
 				link.textContent = `🔗 ${url.url}${url.label ? `: ${url.label}` : ''}`;
-				link.title = localization.link__followUrl(url.url),
+				link.title = _('Follow link: %s', url.url),
 				link.onclick = () => {
 					onOpenLink(url.url, view);
 				};
